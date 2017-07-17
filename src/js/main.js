@@ -35,7 +35,7 @@
 
     // board.draw();
 
-    var board1 = new Board(1, 'To Do', []);
+    var board1 = new Board(1, 'To Do', [new Card(1, '계획 세우기')]);
     var board2 = new Board(2, 'Doing', []);
     var board3 = new Board(3, 'Done', []);
     document.getElementById('board-list').innerHTML = board1.draw() + board2.draw() + board3.draw();

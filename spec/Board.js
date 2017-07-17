@@ -15,13 +15,22 @@ describe('Board', function() {
 
   describe('draw()', function() {
     var board,
-        boardName = 'board name';
+        boardName = 'board name',
+        card;
+
     beforeEach(function() {
-      board = new Board(1, boardName);
+      card = new Card(1, '계획 세우기');
+      board = new Board(1, boardName, [card]);
+      spyOn(Card.prototype, 'draw')
     });
 
     it('title 이 포함된 html 문자열을 반환한다', function() {
       expect(board.draw()).toMatch(boardName);
+    })
+
+    it('card의 draw 메소드를 호출한다', function() {
+      board.draw();
+      expect(card.draw).toHaveBeenCalled();
     })
   })
 })

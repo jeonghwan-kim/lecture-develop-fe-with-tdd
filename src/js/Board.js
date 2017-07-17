@@ -1,9 +1,4 @@
-function Card() {
 
-}
-Card.prototype.draw = function() {
-
-}
 
 function Board(id, name, cards) {
   if (!id) throw new Error('id가 없습니다');
@@ -23,21 +18,26 @@ Board.prototype.addCard = function(card) {
   this.cards.push(cards);
 }
 
+Board.prototype.drawCards = function(){
+  var text = '';
+
+  if (!this.cards.length) return text;
+
+  text = '<ul class="card-list">';
+  text = this.cards.reduce((text, card) => {
+    text += '<li class="card">' + card.draw() + '</li>';
+    return text;
+  }, text)
+  text += '</ul>';
+
+  return text;
+};
+
 Board.prototype.draw = function() {
   var boardEl = 
       '<div class="board">' + 
         '<h2 class="title">' + this.name + '</h2>' +
-        '<ul class="card-list">' +
-          '<li class="card">' +
-            '<div class="label-list">' +
-              '<span class="label label-green">&nbsp;</span>' +
-            '</div>' +
-            '<div class="card-title">계획 세우기</div>' +
-            '<div class="comment">' +
-              '<span class="comment-count">1</span>' +
-            '</div>' +
-          '</li>' +
-        '</ul>' +
+          this.drawCards() + 
         '<div class="add-card">' +
           '<a href="#" class="add-card-link">Add a card...</a>' +
         '</div>' +
