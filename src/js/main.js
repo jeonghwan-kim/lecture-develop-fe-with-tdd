@@ -21,19 +21,24 @@
   }];
 
   var onLoad = function () {
-    var boards,
-        cards,
-        i,
+    // var boards,
+    //     cards,
+    //     i;
 
-    for (i = 0; i < boardsData.length; i++) {
-      boards.push(new Board(boardsData[i]))
-    }
+    // for (i = 0; i < boardsData.length; i++) {
+    //   boards.push(new Board(boardsData[i]))
+    // }
 
-    for (i = 0; i < cardsData.length; i++) {
-      cards.push(new Card(cardsData[i]))
-    }
+    // for (i = 0; i < cardsData.length; i++) {
+    //   cards.push(new Card(cardsData[i]))
+    // }
 
-    board.draw();
+    // board.draw();
+
+    var board1 = new Board(1, 'To Do', []);
+    var board2 = new Board(2, 'Doing', []);
+    var board3 = new Board(3, 'Done', []);
+    document.getElementById('board-list').innerHTML = board1.draw() + board2.draw() + board3.draw();
   }
 
   document.addEventListener('DOMContentLoaded', onLoad);
