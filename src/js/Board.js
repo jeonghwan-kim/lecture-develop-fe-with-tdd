@@ -36,7 +36,7 @@ Board.prototype.drawCards = function(){
 Board.prototype.draw = function() {
   var boardEl = 
       '<div class="board">' + 
-        '<h2 class="title">' + this.name + '</h2>' +
+        '<h2 class="title font-gray">' + this.name + '</h2>' +
           this.drawCards() + 
         '<div class="add-card">' +
           '<a href="#" class="add-card-link">Add a card...</a>' +

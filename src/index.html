@@ -6,17 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet"> 
   </head>
+
   <body>
-    <header>
+    <header class="site-header">
       <div class="container">
-        <h1 class="title">Trelno</h1>
+        <h1 class="title font-gray">Trelno</h1>
       </div>
     </header>
+
     <div class="container">
-      <nav><a href="#" >Show Menu</a></nav>
+      <nav><a href="#" id="show-menu-link">Show Menu</a></nav>
+      <nav class="hide" id="sidebar">
+        <div class="sidebar">
+          <header>
+            <h2 class="font-gray">Change Background</h2>
+            <button class="btn-close close">x</button>
+          </header>
+          <div class="palette palette-green"></div>
+          <div class="palette palette-red"></div>
+          <div class="palette palette-blue"></div>
+          <div class="palette palette-gray"></div>
+        </div>
+      </nav>
       <section id="board-list"></section>
     </div>
 
+    
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/Card.js"></script>
     <script src="js/Board.js"></script>
     <script src="js/main.js"></script>

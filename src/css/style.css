@@ -14,7 +14,7 @@ ul {
   padding: 0;
   margin: 0 8px;
 }
-header {
+.site-header {
   background-color: rgba(0,0,0,.15);
   line-height: 44px;
   height: 44px;
@@ -28,8 +28,59 @@ nav {
   margin-bottom: 8px;
   text-align: right;
 }
+.hide {
+  display: none;
+}
+.font-gray {
+  color: rgb(77, 77, 77);
+}
+.btn-close {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  width: 40px;
+  height: 21px;
+  font-size: 1.5em;
+  background: white;
+  border: none;
+}
+nav .sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  margin-right: -8px;
+  margin-top: -8px;
+  padding: 8px;
+  text-align: left;
+}
+.sidebar header {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.palette {
+  width: 148px;
+  height: 112px;
+  border-radius: 8px;
+  display: inline-block;
+}
+.palette-green {
+  background-color: green;
+}
+.palette-red {
+  background-color: red;
+}
+.palette-blue {
+  background-color: blue;
+}
+.palette-gray {
+  background-color: gray;
+}
 .container {
   margin: 0 8px;
+  position: relative;
 }
 .board {
   background-color: #E2E4E6;
@@ -42,7 +93,6 @@ nav {
   font-size: 140%;
   margin: 0 8px;
   padding: 8px 0;
-  color: rgb(77, 77, 77);
 }
 .card-list {
    margin-bottom: 8px;
