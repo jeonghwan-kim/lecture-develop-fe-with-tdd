@@ -114,6 +114,12 @@ nav .sidebar {
 .label-green {
   background-color: #61BD4F;
 }
+.label-red {
+  background-color: #FF0000;
+}
+.label-blue {
+  background-color: #0000FF;
+}
 .comment {
   color: #8c8c8c;
 }

@@ -135,3 +135,69 @@ describe('Trelno.CardService', ()=> {
     })
   })
 })
+
+describe('Trlno.BoardDisplay', ()=>{
+  let display,
+      name,
+      cardDisplayList,
+      cardHtml,
+      spy;
+
+  beforeEach(()=>{
+    name = 'board name';
+    cardHtml = 'card html';
+    spy = jasmine.createSpy('html').and.returnValue(cardHtml);
+    cardDisplayList = [{
+      html: spy
+    }]
+    display = Trelno.BoardDisplay(1, name, cardDisplayList);
+  });
+
+  describe('html', ()=> {
+    it('CardDisplay.html() 을 호출 결과를 포함한다', ()=> {
+      const html = display.html();
+      expect(spy).toHaveBeenCalled();
+      expect(html).toMatch(cardHtml);
+    })
+  })
+})
+
+describe('Trelno.CardDisplay', ()=> {
+  let display,
+      card;
+
+  beforeEach(()=> {
+    card = {
+      name: 'card name'
+    }
+    display = Trelno.CardDisplay(card);
+  });
+
+  describe('html', () => {
+    let html;
+
+    beforeEach(()=> {
+      html = display.html();
+    });
+
+    it('카드 이름을 출력한다', ()=> {
+      expect(html).toMatch(card.name)
+    })
+
+    describe('카드에 태그가 있으면', ()=> {
+      beforeEach(()=> {
+        card.tags = ['green']
+        html = display.html();
+      })
+
+      afterEach(()=> {
+        delete card.tags;
+      })
+
+      it('태그 이름으로 클래스 명을 붙인다', ()=> {
+        const tags = $(html).find('.label')
+        expect(tags.attr('class')).toMatch(`label-${card.tags[0]}`);
+      });
+    })
+  })
+})

@@ -16,14 +16,14 @@ Board.prototype.addCard = function(card) {
   this.cards.push(cards);
 }
 
-Board.prototype.drawCards = function(){
+Board.prototype.cardListHtml = function(){
   var text = '';
 
   if (!this.cards.length) return text;
 
   text = '<ul class="card-list">';
   text = this.cards.reduce((text, card) => {
-    text += '<li class="card">' + card.draw() + '</li>';
+    text += '<li class="card">' + card.html() + '</li>';
     return text;
   }, text)
   text += '</ul>';
@@ -31,11 +31,11 @@ Board.prototype.drawCards = function(){
   return text;
 };
 
-Board.prototype.draw = function() {
+Board.prototype.html = function() {
   var boardEl =
       '<div class="board">' +
         '<h2 class="title font-gray">' + this.name + '</h2>' +
-          this.drawCards() +
+          this.cardListHtml() +
         '<div class="add-card">' +
           '<a href="#" class="add-card-link">Add a card...</a>' +
         '</div>' +
