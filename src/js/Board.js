@@ -1,5 +1,3 @@
-
-
 function Board(id, name, cards) {
   if (!id) throw new Error('id가 없습니다');
   if (!name) throw new Error(Board.ERROR_NO_NAME);
@@ -34,10 +32,10 @@ Board.prototype.drawCards = function(){
 };
 
 Board.prototype.draw = function() {
-  var boardEl = 
-      '<div class="board">' + 
+  var boardEl =
+      '<div class="board">' +
         '<h2 class="title font-gray">' + this.name + '</h2>' +
-          this.drawCards() + 
+          this.drawCards() +
         '<div class="add-card">' +
           '<a href="#" class="add-card-link">Add a card...</a>' +
         '</div>' +

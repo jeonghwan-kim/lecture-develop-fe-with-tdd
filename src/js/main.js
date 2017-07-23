@@ -21,19 +21,39 @@ Trelno.SidebarDisplay = options => {
   return sidebar;
 }
 
-Trelno.BgColorSettingDisplay = (options) => {
+Trelno.BgColorSettingDisplay = options => {
   var setting = {
     setBackgroundColor(rgb) {
       options.updateEl.css('background-color', rgb);
     }
-  }
+  };
 
   options.triggerEl.on('click', e => {
     var bgColor = $(e.currentTarget).css('background-color')
     setting.setBackgroundColor(bgColor)
-  })
+  });
 
   return setting;
+};
+
+Trelno.CardService = _ => {
+  var storage = [];
+
+  var service = {
+    query() {
+      return storage;
+    },
+    create(name) {
+      var card = {
+        id: Date.now().toString(),
+        name: name
+      };
+      storage.push(card);
+      return card;
+    }
+  };
+
+  return service;
 }
 
 (function() {
