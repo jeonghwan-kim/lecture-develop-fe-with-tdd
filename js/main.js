@@ -33,8 +33,6 @@
     $('#board-list')
       .append(board1.element())
       .append(board2.element())
-
-    console.log(1)
   };
 
   document.addEventListener('DOMContentLoaded', onLoad);
