@@ -8,8 +8,9 @@ Trelno.CardDisplay = card => {
         return html;
       }, '');
     },
-    html() {
-      return `
+
+    element() {
+      const template = `
         <div class="card" data-card-id="${card.id}">
           <div class="label-list">
             ${display.tagsHtml(card.tags)}
@@ -19,9 +20,8 @@ Trelno.CardDisplay = card => {
             <span class="comment-count">1</span>
           </div>
         </div>`;
-    },
-    element() {
-      return $(display.html());
+
+      return $(template);
     }
   };
 

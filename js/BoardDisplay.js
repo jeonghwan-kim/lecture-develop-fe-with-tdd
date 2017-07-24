@@ -2,7 +2,7 @@ var Trelno = Trelno || {};
 
 Trelno.BoardDisplay = (id, name, cardDisplayList = []) => {
   let display = {
-    cardList() {
+    cardListElement() {
       return cardDisplayList.reduce((arr, cardDisplay)=> {
         if (typeof cardDisplay.element !== 'function') return arr;
         arr.push(cardDisplay.element());
@@ -10,8 +10,8 @@ Trelno.BoardDisplay = (id, name, cardDisplayList = []) => {
       }, []);
     },
 
-    html() {
-      return `
+    templateElement() {
+      const template = `
         <div class="board">
           <h2 class="title font-gray">${name}</h2>
           <ul class="card-list"></ul>
@@ -19,6 +19,8 @@ Trelno.BoardDisplay = (id, name, cardDisplayList = []) => {
             <a href="#" class="add-card-link">Add a card...</a>
           </div>
         </div>`;
+
+      return $(template);
     },
 
     bindDropEvent(el) {
@@ -40,18 +42,19 @@ Trelno.BoardDisplay = (id, name, cardDisplayList = []) => {
     },
 
     element() {
-      const el = $(display.html());
+      const $el = display.templateElement();
 
-      display.bindDropEvent(el);
+      display.bindDropEvent($el);
 
-      display.cardList().forEach(cardEl => {
+      display.cardListElement().forEach(cardEl => {
         const li = $(`<li id="${cardEl.data('card-id')}" draggable="true"></li>`);
+
         display.bindDragEvent(li)
         li.append(cardEl);
-        el.find('ul.card-list').append(li);
+        $el.find('ul.card-list').append(li);
       });
 
-      return el;
+      return $el;
     }
   }
 
