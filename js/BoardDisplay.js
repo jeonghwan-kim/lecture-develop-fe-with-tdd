@@ -1,6 +1,6 @@
 var Trelno = Trelno || {};
 
-Trelno.BoardDisplay = (id, name, cardDisplayList = []) => {
+Trelno.BoardDisplay = (boardId, name, cardDisplayList = []) => {
   let display = {
     cardListElement() {
       return cardDisplayList.reduce((arr, cardDisplay)=> {
@@ -28,6 +28,17 @@ Trelno.BoardDisplay = (id, name, cardDisplayList = []) => {
         e.preventDefault();
         id = e.originalEvent.dataTransfer.getData('id');
         $(e.target).parents('.board').find('ul.card-list').append($(`#${id}`));
+
+        const card = {
+          id: id.replace('card-', ''),
+          boardId: boardId
+        }
+        console.log('card', card)
+
+        const service = Trelno.CardService()
+        service.update(card)
+
+        $('body').trigger('updateBoardDisplay')
       });
 
       el.on('dragover', e => {
@@ -47,7 +58,7 @@ Trelno.BoardDisplay = (id, name, cardDisplayList = []) => {
       display.bindDropEvent($el);
 
       display.cardListElement().forEach(cardEl => {
-        const li = $(`<li id="${cardEl.data('card-id')}" draggable="true"></li>`);
+        const li = $(`<li id="card-${cardEl.data('card-id')}" draggable="true"></li>`);
 
         display.bindDragEvent(li)
         li.append(cardEl);
