@@ -66,13 +66,18 @@ Trelno.CardDisplay = card => {
     },
     html() {
       return `
-        <div class="label-list">
-          ${display.tagsHtml(card.tags)}
-        </div>
-        <div class="card-title">${card.name}</div>
-        <div class="comment">
-          <span class="comment-count">1</span>
+        <div class="card">
+          <div class="label-list">
+            ${display.tagsHtml(card.tags)}
+          </div>
+          <div class="card-title">${card.name}</div>
+          <div class="comment">
+            <span class="comment-count">1</span>
+          </div>
         </div>`;
+    },
+    element() {
+      return $(display.html());
     }
   };
 
@@ -81,12 +86,31 @@ Trelno.CardDisplay = card => {
 
 Trelno.BoardDisplay = (id, name, cardDisplayList = []) => {
   let display = {
+    cardList() {
+      return cardDisplayList.reduce((arr, cardDisplay)=> {
+        if (typeof cardDisplay.element !== 'function') return arr;
+        arr.push(cardDisplay.element());
+        return arr;
+      }, []);
+    },
     html() {
-      return cardDisplayList.reduce((html, cardDisplay)=> {
-        if (typeof cardDisplay.html !== 'function') return html;
-        html += cardDisplay.html();
-        return html;
-      }, '');
+      return `
+        <div class="board">
+          <h2 class="title font-gray">${name}</h2>
+          <ul class="card-list"></ul>
+          <div class="add-card">
+            <a href="#" class="add-card-link">Add a card...</a>
+          </div>
+        </div>`;
+    },
+    element() {
+      const el = $(display.html());
+      display.cardList().forEach(cardEl => {
+        const li = $('<li></li>');
+        li.append(cardEl);
+        el.find('ul.card-list').append(li);
+      })
+      return el;
     }
   }
 
@@ -106,7 +130,7 @@ Trelno.BoardDisplay = (id, name, cardDisplayList = []) => {
     })
   }
 
-  var board1 = new Board(1, 'To Do',
+  var board1 = Trelno.BoardDisplay(1, 'To Do',
     [
       Trelno.CardDisplay({
         name: '계획 세우기',
@@ -114,10 +138,11 @@ Trelno.BoardDisplay = (id, name, cardDisplayList = []) => {
       })
     ]
   );
+
   // var board2 = new Board(2, 'Doing', [new Card(2, '요가하기'), new Card(3, '장보기')]);
   // var board3 = new Board(3, 'Done', []);
   //
-  document.getElementById('board-list').innerHTML = board1.html();
+  $('#board-list').append(board1.element());
   document.addEventListener('DOMContentLoaded', onLoad);
 })();
 
