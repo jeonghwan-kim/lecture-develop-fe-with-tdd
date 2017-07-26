@@ -1,14 +1,14 @@
 var Trelno = Trelno || {};
 
-Trelno.BgColorSettingDisplay = options => {
+Trelno.BgColorSettingDisplay = (triggerEl, updateEl) => {
   var setting = {
     setBackgroundColor(rgb) {
-      options.updateEl.css('background-color', rgb);
+      updateEl.css('background-color', rgb);
     }
   };
 
-  options.triggerEl.on('click', e => {
-    var bgColor = $(e.currentTarget).css('background-color')
+  triggerEl.on('click', e => {
+    var bgColor = $(e.target).css('background-color')
     setting.setBackgroundColor(bgColor)
   });
 

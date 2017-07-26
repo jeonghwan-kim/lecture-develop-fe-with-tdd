@@ -16,15 +16,8 @@ function updateBoardDisplay() {
 
 (function() {
   var onLoad = function () {
-    Trelno.SidebarDisplay({
-      triggerEl: $('#show-menu-link'),
-      sidebarEl: $('#sidebar')
-    });
-
-    Trelno.BgColorSettingDisplay({
-      triggerEl: $('.palette'),
-      updateEl: $('body')
-    })
+    Trelno.SidebarDisplay($('#show-menu-link'), $('#sidebar'))
+    Trelno.BgColorSettingDisplay($('.palette'), $('body'))
 
     updateBoardDisplay()
 

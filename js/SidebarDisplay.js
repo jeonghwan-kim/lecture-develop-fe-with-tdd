@@ -1,20 +1,20 @@
 var Trelno = Trelno || {};
 
-Trelno.SidebarDisplay = options => {
+Trelno.SidebarDisplay = (triggerEl, sidebarEl) => {
   var sidebar = {
     show() {
-      options.sidebarEl.removeClass('hide')
+      sidebarEl.removeClass('hide')
     },
     hide() {
-      options.sidebarEl.addClass('hide')
+      sidebarEl.addClass('hide')
     }
   }
 
-  options.triggerEl.on('click', e => {
+  triggerEl.on('click', () => {
     sidebar.show()
   })
 
-  options.sidebarEl.find('.close').on('click', e => {
+  sidebarEl.find('.close').on('click', () => {
     sidebar.hide()
   });
 

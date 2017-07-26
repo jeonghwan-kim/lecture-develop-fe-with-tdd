@@ -10,8 +10,7 @@ describe('Trelno.SidebarDisplay', ()=> {
     sidebarEl = $('<div id="sidebar"><button class="close">x</button></div>');
     $('body').append(sidebarEl);
 
-    const options = {triggerEl, sidebarEl};
-    display = Trelno.SidebarDisplay(options);
+    display = Trelno.SidebarDisplay(triggerEl, sidebarEl);
   });
 
   afterEach(()=> {

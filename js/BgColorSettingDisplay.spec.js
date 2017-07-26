@@ -7,7 +7,7 @@ describe('Trelno.BgColorSettingDisplay', ()=> {
     triggerEl = $('<div style="background-color: #f00;"></div>');
     updateEl = $('<div></div>');
 
-    display = Trelno.BgColorSettingDisplay({triggerEl, updateEl});
+    display = Trelno.BgColorSettingDisplay(triggerEl, updateEl);
   });
 
   afterEach(()=> {

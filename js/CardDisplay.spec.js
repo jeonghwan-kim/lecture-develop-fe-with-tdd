@@ -9,16 +9,22 @@ describe('Trelno.CardDisplay', () => {
     display = Trelno.CardDisplay(card)
   })
 
-  describe('tagsHtml', ()=> {
-    let html,
-        tags = ['green']
+  describe('tagListElements', ()=>{
+    let spy
 
-    beforeEach(()=> {
-      html = display.tagsHtml(tags)
+    beforeEach(() => {
+      spy = jasmine.createSpy('CardTagDisplay.element')
+      card.tags = ['green']
+      display = Trelno.CardDisplay(card, {element: spy})
+      display.element()
     })
 
-    it('태그 이름으로 클래스 명을 붙인 html 문자열을 반환한다', () => {
-      expect(html).toMatch(`label-${tags[0]}`)
+    afterEach(()=> {
+      delete card.tags
+    })
+
+    it('cardTagDisplay.element()를 호출한다', () => {
+      expect(spy).toHaveBeenCalled()
     })
   })
 
@@ -38,25 +44,18 @@ describe('Trelno.CardDisplay', () => {
     })
 
     describe('카드에 태그가 있으면', () => {
-      let mockResponseOfTagsHtml
-
-      beforeEach(() => {
-        mockResponseOfTagsHtml = '<span></span>'
-        spyOn(display, 'tagsHtml').and.returnValue(mockResponseOfTagsHtml)
+      beforeEach(()=> {
         card.tags = ['green']
-        $el = display.element()
+        spyOn(display, 'tagListElements').and.returnValue([])
       })
 
-      afterEach(() => {
+      afterEach(()=> {
         delete card.tags
       })
 
-      it('tagsHtml을 호출한다', () => {
-        expect(display.tagsHtml).toHaveBeenCalled()
-      })
-
-      it('tagsHtml이 반환한 문자열을 돔에 추가한다', ()=> {
-        expect($el.html()).toMatch(mockResponseOfTagsHtml)
+      it('tagListElements를 호출한다', () => {
+        display.element()
+        expect(display.tagListElements).toHaveBeenCalled()
       })
    })
   })

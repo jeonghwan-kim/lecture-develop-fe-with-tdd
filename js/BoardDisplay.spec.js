@@ -51,9 +51,13 @@ describe('Trlno.BoardDisplay', () => {
     })
   })
 
-  describe('bindDropEvent', ()=> {})
+  describe('bindDropEvent', ()=> {
+    // todo
+  })
 
-  describe('bindDragEvent', ()=> {})
+  describe('bindDragEvent', ()=> {
+    // todo
+  })
 
   describe('element', () => {
     let $el
