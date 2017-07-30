@@ -1,4 +1,4 @@
-var ClickCountDisplay = function() {
+var ClickCountDisplay = function(options) {
   var counter = 0
   return {
     getClickCount() {
@@ -11,7 +11,7 @@ var ClickCountDisplay = function() {
     },
 
     updateDisplay() {
-
+      options.updateEl.text(this.getClickCount())
     }
   }
 }
