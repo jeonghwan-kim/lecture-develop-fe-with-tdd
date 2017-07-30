@@ -15,6 +15,22 @@ describe('Trelno.BgColorSettingDisplay', ()=> {
     updateEl.remove();
   })
 
+  it('triggerEl이 없으면 에러를 던진다', ()=> {
+    let actual = () => {
+      Trelno.BgColorSettingDisplay(null, triggerEl)
+    }
+
+    expect(actual).toThrowError(Trelno.messages.noTriggerElParam)
+  })
+
+  it('triggerEl이 제이쿼리 객체가 아니면 에러를 던지다', ()=> {
+    let actual = () => {
+      Trelno.BgColorSettingDisplay({}, triggerEl)
+    }
+
+    expect(actual).toThrowError(Trelno.messages.triggerElParamNot$)
+  })
+
   it('색상 요소를 클릭하면 setBackgroundColor()를 호출한다', ()=> {
     spyOn(display, 'setBackgroundColor');
     triggerEl.trigger('click');
