@@ -5,16 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script>
-      var counter = 0;
+    <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>
 
-      function countDisplay() {
-        document.getElementById('counter-display').innerHTML = counter;
-      }
+    <script src="ClickCountDisplay.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', ()=> {
+        var clickCountDisplay = ClickCountDisplay({
+          triggerEl: $('#btn'),
+          updateEl: $('#counter-display')
+        })
+
+        clickCountDisplay.updateDisplay()
+      })
     </script>
   </head>
 
   <body>
-    <button onclick="counter++; countDisplay()">증가</button><span id="counter-display">0</span>
+    <button id="btn">증가</button><span id="counter-display"></span>
   </body>
 </html>
