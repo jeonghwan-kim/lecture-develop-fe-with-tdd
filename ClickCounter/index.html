@@ -7,15 +7,16 @@
 
     <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>
 
-    <script src="ClickCountDisplay.js"></script>
+    <script src="ClickCounter.js"></script>
+    <script src="ClickCountView.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', ()=> {
-        var clickCountDisplay = ClickCountDisplay({
+        var clickCountView = ClickCountView(ClickCounter(), {
           triggerEl: $('#btn'),
           updateEl: $('#counter-display')
         })
 
-        clickCountDisplay.updateDisplay()
+        clickCountView.updateView()
       })
     </script>
   </head>
