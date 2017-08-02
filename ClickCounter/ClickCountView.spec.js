@@ -4,14 +4,16 @@ describe('ClickCountView 모듈', () => {
   beforeEach(() => {
     updateEl = $('<span></span>');
     triggerEl = $('<button></button>');
-    clickCounter = ClickCounter();
+    clickCounter = ClickCounter(); // todo: spy로 하자 
     view  = ClickCountView(clickCounter, { updateEl, triggerEl })
   })
 
-  it('클릭 이벤트가 발생하면 increseAndUpdateView를 실행한다', ()=> {
-    spyOn(view, 'increseAndUpdateView')
-    triggerEl.trigger('click')
-    expect(view.increseAndUpdateView).toHaveBeenCalled()
+  describe('updateView()', () => {
+    it('ClickCounter의 getCounter() 실행결과를 출력한다', ()=> {
+      const counterValue = clickCounter.getCounter().toString() 
+      view.updateView() 
+      expect(updateEl.text()).toBe(counterValue)
+    })
   })
 
   describe('increseAndUpdateView()', () => {
@@ -26,17 +28,11 @@ describe('ClickCountView 모듈', () => {
       view.increseAndUpdateView()
       expect(view.updateView).toHaveBeenCalled()
     })
-
-    it('updateEl의 텍스트를 설정한다', () => {
-      view.increseAndUpdateView()
-      expect(updateEl.text()).toBe(view.getClickCount().toString())
-    })
   })
 
-  describe('updateView()', () => {
-    it('클릭한적이 없으면 "0"을 출력한다', ()=> {
-      view.updateView()
-      expect(updateEl.text()).toBe('0')
-    })
+  it('클릭 이벤트가 발생하면 increseAndUpdateView를 실행한다', ()=> {
+    spyOn(view, 'increseAndUpdateView')
+    triggerEl.trigger('click')
+    expect(view.increseAndUpdateView).toHaveBeenCalled()
   })
 })

@@ -1,16 +1,12 @@
 var ClickCountView = function(clickCounter, options) {
   var view = {
-    getClickCount() {
-      return clickCounter.getCounter()
-    },
-
     increseAndUpdateView() {
       clickCounter.increase()
-      this.updateView()
+      view.updateView()
     },
 
     updateView() {
-      options.updateEl.text(this.getClickCount())
+      options.updateEl.text(clickCounter.getCounter())
     }
   }
 
