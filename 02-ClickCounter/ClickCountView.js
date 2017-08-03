@@ -1,8 +1,7 @@
-var ClickCountView = function(clickCounter, updateEl) {
-
-  return {
+var ClickCountView = function(clickCounter, options) {
+  const view = {
     updateView() {
-      updateEl.text(clickCounter.getCounter())
+      options.updateEl.text(clickCounter.getCounter())
     },
 
     increaseAndUpdateView() {
@@ -10,4 +9,10 @@ var ClickCountView = function(clickCounter, updateEl) {
       this.updateView()
     }
   }
+  
+  options.triggerEl.on('click', () => {
+   view.increaseAndUpdateView()   
+  })
+
+  return view
 }

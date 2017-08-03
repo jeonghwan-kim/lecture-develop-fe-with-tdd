@@ -1,10 +1,11 @@
 describe('ClickCountView 모듈', () => {
-  let udpateEl, clickCounter, view
+  let updateEl, triggerEl, clickCounter, view
 
   beforeEach(()=> {
     updateEl = $('<span></span>');
+    triggerEl = $('<button></button>')
     clickCounter = ClickCounter(); 
-    view = ClickCountView(clickCounter, updateEl)
+    view = ClickCountView(clickCounter, {updateEl, triggerEl})
   })
 
   describe('updateView()', () => {
@@ -27,5 +28,11 @@ describe('ClickCountView 모듈', () => {
         expect(view.updateView).toHaveBeenCalled()
       })
     })
+  })
+
+  it('클릭 이벤트가 발생하면 increaseAndUpdateView를 실행한다', ()=> {
+    spyOn(view, 'increaseAndUpdateView')
+    triggerEl.trigger('click')
+    expect(view.increaseAndUpdateView).toHaveBeenCalled()
   })
 })
