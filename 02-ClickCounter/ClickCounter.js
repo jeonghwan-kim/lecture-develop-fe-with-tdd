@@ -4,6 +4,10 @@ var ClickCounter = function() {
   return {
     getCounter() {
       return counter
+    },
+
+    increase() {
+      counter++
     }
   }
 }
