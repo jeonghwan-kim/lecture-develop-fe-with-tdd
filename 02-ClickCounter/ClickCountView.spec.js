@@ -1,9 +1,35 @@
 describe('ClickCountView 모듈', () => {
-  let updateEl, triggerEl, clickCounter, view
+  let udpateEl, triggerEl, clickCounter, view
+
+  it('ClickCounter를 주입하지 않으면 에러를 던진다', ()=> {
+    clickCounter = null
+    updateEl = $('<span></span>') 
+    
+    const actual = () => ClickCountView(clickCounter, updateEl)
+    expect(actual).toThrowError(ClickCountView.messages.noClickCounter)
+  })
+
+  it('updateEl를 주입하지 않으면 에러를 던진다', ()=> {
+    clickCounter = ClickCounter()
+    updateEl = null 
+    triggerEl = $('<button></button>') 
+
+    const actual = () => ClickCountView(clickCounter, {updateEl, triggerEl})
+    expect(actual).toThrowError(ClickCountView.messages.noUpdateEl)
+  })
+
+  it('triggerEl를 주입하지 않으면 에러를 던진다', ()=> {
+    clickCounter = ClickCounter()
+    updateEl = $('<span></span>')  
+    triggerEl = null
+
+    const actual = () => ClickCountView(clickCounter, {updateEl, triggerEl})
+    expect(actual).toThrowError(ClickCountView.messages.noTriggerEl)
+  })
 
   beforeEach(()=> {
     updateEl = $('<span></span>');
-    triggerEl = $('<button></button>')
+    triggerEl = $('<button></button>') 
     clickCounter = ClickCounter(); 
     view = ClickCountView(clickCounter, {updateEl, triggerEl})
   })
