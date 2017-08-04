@@ -1,0 +1,132 @@
+*, html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgb(81, 152, 57);
+  font-size: 12px;
+}
+a {
+  color: white;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 8px;
+}
+.site-header {
+  background-color: rgba(0,0,0,.15);
+  line-height: 44px;
+  height: 44px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+header .title {
+  color: rgba(255, 255, 255, .5);
+}
+nav {
+  margin-bottom: 8px;
+  text-align: right;
+}
+.hide {
+  display: none;
+}
+.font-gray {
+  color: rgb(77, 77, 77);
+}
+.btn-close {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  width: 40px;
+  height: 21px;
+  font-size: 1.5em;
+  background: white;
+  border: none;
+}
+nav .sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  margin-right: -8px;
+  margin-top: -8px;
+  padding: 8px;
+  text-align: left;
+}
+.sidebar header {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.palette {
+  width: 148px;
+  height: 112px;
+  border-radius: 8px;
+  display: inline-block;
+}
+.palette-green {
+  background-color: green;
+}
+.palette-red {
+  background-color: red;
+}
+.palette-blue {
+  background-color: blue;
+}
+.palette-gray {
+  background-color: gray;
+}
+.container {
+  margin: 0 8px;
+  position: relative;
+}
+.board {
+  background-color: #E2E4E6;
+  width: 270px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 8px;
+}
+.board .title {
+  font-size: 140%;
+  margin: 0 8px;
+  padding: 8px 0;
+}
+.card-list {
+   margin-bottom: 8px;
+}
+.card {
+  background-color: white;
+  border-radius: 4px;
+  padding: 6px;
+}
+.card-title {
+  font-size: 120%;
+}
+.label {
+  width: 42px;
+  height: 8px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.label-green {
+  background-color: #61BD4F;
+}
+.label-red {
+  background-color: #FF0000;
+}
+.label-blue {
+  background-color: #0000FF;
+}
+.comment {
+  color: #8c8c8c;
+}
+.add-card {
+  margin: 0 8px;
+  padding-bottom: 8px;
+}
+.add-card a {
+  color: rgb(140, 140, 140);
+}
