@@ -31,11 +31,11 @@ describe('ClickCountView 모듈', () => {
 
     describe('increaseAndUpdateView()는', ()=> {
       it('ClickCounter의 increase 를 실행한다', ()=> {
-      
+        // todo
       })
       
       it('updateView를 실행한다', ()=> {
-      
+        // todo 
       })
     })
   })
