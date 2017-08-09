@@ -11,6 +11,7 @@ describe('ClickCountView 모듈', () => {
   it('updateEl를 주입하지 않으면 에러를 던진다', ()=> {
     const clickCounter = ClickCounter()
     const updateEl = null 
+    const actual = () => ClickCountView(clickCounter, updateEl)
     expect(actual).toThrowError(ClickCountView.messages.noUpdateEl)
   })
 
@@ -19,6 +20,7 @@ describe('ClickCountView 모듈', () => {
     clickCounter = ClickCounter(); 
     view = ClickCountView(clickCounter, updateEl)
   })
+  
 
   describe('updateView()', () => {
     it('ClickCounter의 getCounter() 실행결과를 출력한다', ()=> {
