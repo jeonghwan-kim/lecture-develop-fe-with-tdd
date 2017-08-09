@@ -1,5 +1,5 @@
 const ClickCounter = () => {
-  const counter = 0
+  let counter = 0
 
   return {
     getCounter() {
