@@ -1,4 +1,5 @@
 import {SidebarView} from './SidebarView.js'
+import {BgColorSettingView} from './BgColorSettingView.js'
 
 const onLoad = () => {
   SidebarView({
@@ -8,6 +9,11 @@ const onLoad = () => {
     },
     triggerEl: '#show-menu-link', 
   });
+
+  BgColorSettingView({
+    el: 'body', 
+    triggerEls: '.palette'
+  })
 };
 
 document.addEventListener('DOMContentLoaded', onLoad);
