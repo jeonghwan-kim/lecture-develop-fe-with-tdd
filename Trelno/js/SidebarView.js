@@ -1,11 +1,9 @@
-var Trelno = Trelno || {};
-
-Trelno.SidebarView = options => {
+export const SidebarView = options => {
   const el = document.querySelector(options.el);
   const triggerEl = document.querySelector(options.triggerEl);
 
-  if (!el) throw Error(Trelno.SidebarView.messages.noEl);
-  if (!triggerEl) throw Error(Trelno.SidebarView.messages.noTriggerEl);
+  if (!el) throw Error(messages.noEl);
+  if (!triggerEl) throw Error(messages.noTriggerEl);
 
   const {data} = options;
   const closeEl = document.querySelector(`.sidebar .close`)
@@ -22,7 +20,7 @@ Trelno.SidebarView = options => {
   return api;
 }
 
-Trelno.SidebarView.messages = {
+const messages = {
   noEl: 'el is required',
   noTriggerEl: 'triggerEl is required', 
   noCloseEl: '.close 클래스를 포함한 엘레먼트는 필수'
