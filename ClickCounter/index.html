@@ -7,25 +7,38 @@
 
     <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>
 
-    <script src="ClickCounter.js"></script>
-    <script src="ClickCountView.js"></script>
+    <script src="Counter.js"></script>
+    <script src="CounterView.js"></script>
+    
     <script>
       document.addEventListener('DOMContentLoaded', ()=> {
-        var clickCounter = ClickCounter()
-          .setIncrease(count => {
-            return count + 2
-          })
-        var clickCountView = ClickCountView(clickCounter, {
-          triggerEl: $('#btn'),
+        var data = {
+          value: 0
+        }
+        
+        var counterAsc = Counter(data)
+        var counterDesc = Counter(data)
+          .setCountFn(value => value - 1)
+
+        var counterViewAsc = CounterView(counterAsc, {
+          triggerEl: $('#btn-asc'),
+          updateEl: $('#counter-display')
+        })
+        var counterViewDesc = CounterView(counterDesc, {
+          triggerEl: $('#btn-desc'),
           updateEl: $('#counter-display')
         })
 
-        clickCountView.updateView()
+        counterViewAsc.updateView()
+        counterViewDesc.updateView()
       })
     </script>
+
   </head>
 
   <body>
-    <button id="btn">증가</button><span id="counter-display"></span>
+    <button id="btn-asc"> + </button>
+    <button id="btn-desc"> - </button>
+    <span id="counter-display"></span>
   </body>
 </html>
