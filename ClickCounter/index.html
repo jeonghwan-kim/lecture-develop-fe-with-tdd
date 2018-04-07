@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>
-
     <script src="Counter.js"></script>
     <script src="CounterView.js"></script>
     
@@ -21,12 +19,12 @@
           .setCountFn(value => value - 1)
 
         var counterViewAsc = CounterView(counterAsc, {
-          triggerEl: $('#btn-asc'),
-          updateEl: $('#counter-display')
+          triggerEl: document.querySelector('#btn-asc'),
+          updateEl: document.querySelector('#counter-display')
         })
         var counterViewDesc = CounterView(counterDesc, {
-          triggerEl: $('#btn-desc'),
-          updateEl: $('#counter-display')
+          triggerEl: document.querySelector('#btn-desc'),
+          updateEl: document.querySelector('#counter-display')
         })
 
         counterViewAsc.updateView()

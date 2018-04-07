@@ -6,11 +6,11 @@ var CounterView = function(counter, options) {
     },
 
     updateView() {
-      options.updateEl.text(counter.getValue())
+      options.updateEl.innerHTML = counter.getValue()
     }
   }
 
-  options.triggerEl.on('click', () => {
+  options.triggerEl.addEventListener('click', () => {
     view.countAndUpdateView()
   })
 
