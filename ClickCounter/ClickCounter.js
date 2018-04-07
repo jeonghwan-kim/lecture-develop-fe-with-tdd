@@ -1,17 +1,26 @@
 var ClickCounter = function() {
-  var counter = 0;
+  let count = 0;
 
-  return {
+  var counter = {
     increase() {
-      counter++;
+      count++;
     },
 
     decrease() {
-      counter--;
+      count--;
     },
 
     getCounter() {
-      return counter;
+      return count;
+    },
+
+    setIncrease(method) {
+      this.increase = () => {
+        count = method(count)
+      }
+      return this
     }
   }
+
+  return counter
 }

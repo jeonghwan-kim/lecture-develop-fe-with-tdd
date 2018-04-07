@@ -11,7 +11,11 @@
     <script src="ClickCountView.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', ()=> {
-        var clickCountView = ClickCountView(ClickCounter(), {
+        var clickCounter = ClickCounter()
+          .setIncrease(count => {
+            return count + 2
+          })
+        var clickCountView = ClickCountView(clickCounter, {
           triggerEl: $('#btn'),
           updateEl: $('#counter-display')
         })
