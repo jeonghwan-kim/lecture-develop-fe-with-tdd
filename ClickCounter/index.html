@@ -10,19 +10,16 @@
     
     <script>
       document.addEventListener('DOMContentLoaded', ()=> {
-        var data = {
-          value: 0
-        }
-        
-        var counterAsc = Counter(data)
-        var counterDesc = Counter(data)
+        const data = { value: 0 }
+        const counterAsc = App.Counter(data)
+        const counterDesc = App.Counter(data)
           .setCountFn(value => value - 1)
 
-        var counterViewAsc = CounterView(counterAsc, {
+        const counterViewAsc = App.CounterView(counterAsc, {
           triggerEl: document.querySelector('#btn-asc'),
           updateEl: document.querySelector('#counter-display')
         })
-        var counterViewDesc = CounterView(counterDesc, {
+        const counterViewDesc = App.CounterView(counterDesc, {
           triggerEl: document.querySelector('#btn-desc'),
           updateEl: document.querySelector('#counter-display')
         })
@@ -35,8 +32,8 @@
   </head>
 
   <body>
-    <button id="btn-asc"> + </button>
-    <button id="btn-desc"> - </button>
+    <button id="btn-desc">-</button>
     <span id="counter-display"></span>
+    <button id="btn-asc">+</button>
   </body>
 </html>

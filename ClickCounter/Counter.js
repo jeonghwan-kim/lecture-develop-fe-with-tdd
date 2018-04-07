@@ -1,19 +1,13 @@
-var Counter = function(_data) {
-  let data = _data
+var App = App || {}
 
-  var counter = {
-    count() {
-      data.value++;
-    },
+App.Counter = _data => {
+  const data = _data
 
-    getValue() {
-      return data.value;
-    },
-
-    setCountFn(method) {
-      this.count = () => {
-        data.value = method(data.value)
-      }
+  const counter = {
+    count () { data.value++ },
+    getValue () { return data.value },
+    setCountFn (fn) {
+      this.count = () => (data.value = fn(data.value))
       return this
     }
   }

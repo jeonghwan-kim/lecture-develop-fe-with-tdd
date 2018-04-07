@@ -1,10 +1,11 @@
-var CounterView = function(counter, options) {
-  var view = {
+var App = App || {}
+
+App.CounterView = (counter, options) => {
+  const view = {
     countAndUpdateView() {
       counter.count()
       view.updateView()
     },
-
     updateView() {
       options.updateEl.innerHTML = counter.getValue()
     }
