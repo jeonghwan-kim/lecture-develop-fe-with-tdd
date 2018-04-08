@@ -4,6 +4,7 @@
     <title>Trelno by tdd</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/main.js" type="module"></script>
     <link href="style.css" rel="stylesheet">
   </head>
 
@@ -16,31 +17,21 @@
 
     <div class="container">
       <nav><a href="#" id="show-menu-link">Show Menu</a></nav>
-      <nav class="hide" id="sidebar">
-        <div class="sidebar">
-          <header>
-            <h2 class="font-gray">Change Background</h2>
-            <button class="btn-close close">x</button>
-          </header>
-          <div class="palette palette-green"></div>
-          <div class="palette palette-red"></div>
-          <div class="palette palette-blue"></div>
-          <div class="palette palette-gray"></div>
-        </div>
+
+      <nav class="sidebar">
+        <header>
+          <h2 class="font-gray">Change Background</h2>
+          <button class="btn-close close">x</button>
+        </header>
+        <div class="palette palette-green"></div>
+        <div class="palette palette-red"></div>
+        <div class="palette palette-blue"></div>
+        <div class="palette palette-gray"></div>
       </nav>
     </div>
 
     <sction id="board-list">
       <!-- js로 동적 로딩된다 -->
     </sction>
-
-    <!-- js files -->
-    <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>
-    <script src="js/SidebarDisplay.js"></script>
-    <script src="js/BgColorSettingDisplay.js"></script>
-    <script src="js/BoardDisplay.js"></script>
-    <script src="js/CardDisplay.js"></script>
-    <script src="js/CardService.js"></script>
-    <script src="js/main.js"></script>
   </body>
 </html>

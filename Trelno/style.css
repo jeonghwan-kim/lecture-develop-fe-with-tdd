@@ -28,9 +28,6 @@ nav {
   margin-bottom: 8px;
   text-align: right;
 }
-.hide {
-  display: none;
-}
 .font-gray {
   color: rgb(77, 77, 77);
 }
@@ -44,7 +41,8 @@ nav {
   background: white;
   border: none;
 }
-nav .sidebar {
+nav.sidebar {
+  display: none;
   position: absolute;
   right: 0;
   top: 0;
