@@ -27,5 +27,11 @@ describe('App.Counter', ()=> {
         expect(counter.getValue()).toBe(1)
       })
     })
+
+    describe('setCountFn()', ()=> {
+      it('인자로 함수를 넘기면 count() 함수로 동작한다', ()=> {
+        // todo 
+      })
+    })
   })
 })
