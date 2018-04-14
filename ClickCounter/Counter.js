@@ -1,18 +1,11 @@
 var App = App || {}
 
-App.Counter = _data => {
-  if (!_data) throw Error()
-  
-  const data = _data
-  data.value = data.value || 0
+App.Counter = () => {
+  let value = 0
 
   const counter = {
-    count () { data.value++ },
-    getValue () { return data.value },
-    setCountFn (fn) {
-      this.count = () => (data.value = fn(data.value))
-      return this
-    }
+    count () { value++ },
+    getValue () { return value },
   }
 
   return counter

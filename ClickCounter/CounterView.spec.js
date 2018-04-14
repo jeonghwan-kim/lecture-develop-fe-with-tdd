@@ -1,15 +1,13 @@
-describe('ClickCountView 모듈', () => {
+describe('App.ClickCountView', () => {
   let view
   let updateEl
   let triggerEl
-  let data
   let clickCounter
 
   beforeEach(() => {
     updateEl = document.createElement('span')
     triggerEl = document.createElement('button')
-    data = { value: 0 }
-    clickCounter = App.Counter(data)
+    clickCounter = App.Counter()
     view  = App.CounterView(clickCounter, { updateEl, triggerEl })
   })
 
@@ -25,20 +23,20 @@ describe('ClickCountView 모듈', () => {
   })
 
   describe('countAndUpdateView()', () => {
-    it('Counter의 count() 함수를 실행한다', () => {
+    it('Counter의 count()를 실행한다', () => {
       spyOn(clickCounter, 'count')
       view.countAndUpdateView()
       expect(clickCounter.count).toHaveBeenCalled()
     })
 
-    it('updateView 함수를 실행한다', () => {
+    it('updateView() 를 실행한다', () => {
       spyOn(view, 'updateView')
       view.countAndUpdateView()
       expect(view.updateView).toHaveBeenCalled()
     })
   })
 
-  it('클릭 이벤트가 발생하면 countAndUpdateView()를 실행한다', ()=> {
+  it('클릭 이벤트가 발생하면 countAndUpdateView() 를 실행한다', ()=> {
     spyOn(view, 'countAndUpdateView')
     triggerEl.click()
     expect(view.countAndUpdateView).toHaveBeenCalled()
