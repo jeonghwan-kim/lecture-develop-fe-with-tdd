@@ -10,22 +10,7 @@
     
     <script>
       document.addEventListener('DOMContentLoaded', ()=> {
-        
-      const data = { value: 0 }
-      const counterAsc = App.Counter(data)
-      const counterDesc = App.Counter(data).setCountFn(value => value - 1)
-      const btnAsc = document.querySelector('#btn-asc')
-      const btnDesc = document.querySelector('#btn-desc')
-      const updateEl = document.querySelector('#counter-display')
-
-      const counterViewAsc = App.CounterView(counterAsc, {
-        triggerEl: btnAsc, updateEl
-      })
-      const counterViewDesc = App.CounterView(counterDesc, {
-        triggerEl: btnDesc, updateEl
-      })
-
-      counterViewAsc.updateView()
+        // todo   
       })
     </script>
 
