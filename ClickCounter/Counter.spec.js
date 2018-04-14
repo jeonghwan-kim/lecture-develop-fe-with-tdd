@@ -26,19 +26,6 @@ describe('App.Counter', ()=> {
         counter.count();
         expect(counter.getValue()).toBe(1)
       })
-    });
-  
-    describe('setCountFn()', ()=> {
-      it('인자로 함수를 넘기면 count() 함수로 동작한다', ()=> {
-        const add2 = value => value + 2
-        const expected = add2(data.value)
-
-        counter.setCountFn(add2)
-        counter.count()
-        const actual = counter.getValue()
-
-        expect(actual).toBe(expected)
-      })
     })
   })
 })
