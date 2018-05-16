@@ -8,7 +8,11 @@
 
     <script>
       (() => {
-        // todo 
+        const clickCounter = ClickCounter()
+        const updateEl = document.querySelector('#counter-display')
+        const triggerEl = document.querySelector('#btn-increase')
+        const view = ClickCountView(clickCounter, {updateEl, triggerEl})
+        view.updateView()
       })()
     </script>
   </body>
