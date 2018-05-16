@@ -1,8 +1,8 @@
-describe('ClickCounter', ()=> {
+describe('App.ClickCounter', ()=> {
   let counter
 
   beforeEach(()=> {
-    counter = ClickCounter()
+    counter = App.ClickCounter()
   })
 
   describe('getValue()', ()=> {
