@@ -8,10 +8,10 @@
 
     <script>
       (() => {
-        const clickCounter = ClickCounter()
+        const clickCounter = App.ClickCounter()
         const updateEl = document.querySelector('#counter-display')
         const triggerEl = document.querySelector('#btn-increase')
-        const view = ClickCountView(clickCounter, {updateEl, triggerEl})
+        const view = App.ClickCountView(clickCounter, {updateEl, triggerEl})
         view.updateView()
       })()
     </script>
