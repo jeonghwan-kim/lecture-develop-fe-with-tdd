@@ -1,35 +1,35 @@
-describe('ClickCountView 모듈', () => {
+describe('App.ClickCountView 모듈', () => {
   let udpateEl, clickCounter, view
 
   it('ClickCounter를 주입하지 않으면 에러를 던진다', ()=> {
     const clickCounter = null
     const updateEl = document.createElement('span') 
-    const actual = () => ClickCountView(clickCounter, updateEl)
-    expect(actual).toThrowError(ClickCountView.messages.noClickCounter)
+    const actual = () => App.ClickCountView(clickCounter, updateEl)
+    expect(actual).toThrowError(App.ClickCountView.messages.noClickCounter)
   })
 
   it('updateEl를 주입하지 않으면 에러를 던진다', ()=> {
-    const clickCounter = ClickCounter()
+    const clickCounter = App.ClickCounter()
     const updateEl = null 
-    const actual = () => ClickCountView(clickCounter, updateEl)
-    expect(actual).toThrowError(ClickCountView.messages.noUpdateEl)
+    const actual = () => App.ClickCountView(clickCounter, updateEl)
+    expect(actual).toThrowError(App.ClickCountView.messages.noUpdateEl)
   })
 
   beforeEach(()=> {
     updateEl = document.createElement('span')
-    clickCounter = ClickCounter(); 
-    view = ClickCountView(clickCounter, updateEl)
+    clickCounter = App.ClickCounter(); 
+    view = App.ClickCountView(clickCounter, updateEl)
   })
   
   describe('네거티브 테스트', ()=> {
     it('ClickCounter를 주입하지 않으면 에러를 던진다', ()=> {
-      const actual = () => ClickCountView(null, updateEl)
-      expect(actual).toThrowError(ClickCountView.messages.noClickCounter)
+      const actual = () => App.ClickCountView(null, updateEl)
+      expect(actual).toThrowError(App.ClickCountView.messages.noClickCounter)
     })
 
     it('updateEl를 주입하지 않으면 에러를 던진다', ()=> {
-      const actual = () => ClickCountView(clickCounter, null)
-      expect(actual).toThrowError(ClickCountView.messages.noUpdateEl)
+      const actual = () => App.ClickCountView(clickCounter, null)
+      expect(actual).toThrowError(App.ClickCountView.messages.noUpdateEl)
     })
   })
 
