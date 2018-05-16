@@ -1,10 +1,10 @@
-var ClickCountView = function(clickCounter, updateEl) {
+const ClickCountView = function(clickCounter, updateEl) {
   if (!clickCounter) throw new Error(ClickCountView.messages.noClickCounter)
   if (!updateEl) throw new Error(ClickCountView.messages.noUpdateEl)
   
   return {
     updateView() {
-      updateEl.text(clickCounter.getCounter())
+      updateEl.innerHTML = clickCounter.getValue()
     },
 
     increaseAndUpdateView() {
