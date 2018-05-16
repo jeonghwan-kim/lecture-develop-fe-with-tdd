@@ -1,13 +1,13 @@
 const ClickCounter = () => {
-  let counter = 0
+  let value = 0
 
   return {
-    getCounter() {
-      return counter
+    getValue() {
+      return value
     },
 
     increase() {
-      counter++
+      value++
     }
   }
 }
