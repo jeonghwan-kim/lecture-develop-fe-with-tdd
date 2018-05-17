@@ -2,7 +2,8 @@ describe('App.ClickCountView 모듈', () => {
   let udpateEl, clickCounter, view
 
   beforeEach(()=> {
-    clickCounter = App.ClickCounter()
+    const data = { value: 0 }
+    clickCounter = App.ClickCounter(data)
     updateEl = document.createElement('span')
     triggerEl = document.createElement('button') 
     view = App.ClickCountView(clickCounter, {updateEl, triggerEl})
