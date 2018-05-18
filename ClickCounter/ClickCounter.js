@@ -10,7 +10,7 @@ App.ClickCounter = _data => {
       return data.value
     },
 
-    increase() {
+    count() {
       data.value++
     }
   }

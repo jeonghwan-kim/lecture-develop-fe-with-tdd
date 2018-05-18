@@ -34,23 +34,23 @@ describe('App.ClickCountView 모듈', () => {
     })
   })
 
-  describe('increaseAndUpdateView()는', ()=> {
-    it('ClickCounter의 increase 를 실행한다', ()=> {
-      spyOn(clickCounter, 'increase')
-      view.increaseAndUpdateView()
-      expect(clickCounter.increase).toHaveBeenCalled()
+  describe('countAndUpdateView()는', ()=> {
+    it('ClickCounter의 count 를 실행한다', ()=> {
+      spyOn(clickCounter, 'count')
+      view.countAndUpdateView()
+      expect(clickCounter.count).toHaveBeenCalled()
     })
     
     it('updateView를 실행한다', ()=> {
       spyOn(view, 'updateView')
-      view.increaseAndUpdateView()
+      view.countAndUpdateView()
       expect(view.updateView).toHaveBeenCalled()
     })
   })
 
-  it('클릭 이벤트가 발생하면 increaseAndUpdateView를 실행한다', ()=> {
-    spyOn(view, 'increaseAndUpdateView')
+  it('클릭 이벤트가 발생하면 countAndUpdateView를 실행한다', ()=> {
+    spyOn(view, 'countAndUpdateView')
     triggerEl.click()
-    expect(view.increaseAndUpdateView).toHaveBeenCalled()
+    expect(view.countAndUpdateView).toHaveBeenCalled()
   })
 })

@@ -11,14 +11,14 @@ App.ClickCountView = (clickCounter, options) => {
       options.updateEl.innerHTML = clickCounter.getValue()
     },
 
-    increaseAndUpdateView() {
-      clickCounter.increase()
+    countAndUpdateView() {
+      clickCounter.count()
       this.updateView()
     }
   }
   
   options.triggerEl.addEventListener('click', () => {
-   view.increaseAndUpdateView()   
+   view.countAndUpdateView()   
   })
 
   return view
