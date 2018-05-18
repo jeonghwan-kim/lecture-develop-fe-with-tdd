@@ -25,7 +25,13 @@ describe('App.ClickCounter', ()=> {
 
   describe('setCountFn()', () => {
     it('인자로 함수를 넘기면 count()를 대체한다', () => {
-      // todo 
+      const add2 = value => value + 2
+      const expected = add2(data.value)
+
+      counter.setCountFn(add2).count()
+      const actual = counter.getValue()
+
+      expect(actual).toBe(expected)
     })
   })
 })
