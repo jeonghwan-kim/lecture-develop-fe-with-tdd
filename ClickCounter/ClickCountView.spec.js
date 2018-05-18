@@ -28,15 +28,15 @@ describe('App.ClickCountView 모듈', () => {
       view.updateView()
       expect(updateEl.innerHTML).toBe(counterValue.toString())
     })
+  })
 
-    describe('increaseAndUpdateView()는', ()=> {
-      it('ClickCounter의 increase 를 실행한다', ()=> {
-        // todo
-      })
-      
-      it('updateView를 실행한다', ()=> {
-        // todo 
-      })
+  describe('increaseAndUpdateView()는', ()=> {
+    it('ClickCounter의 increase 를 실행한다', ()=> {
+      // todo
+    })
+    
+    it('updateView를 실행한다', ()=> {
+      // todo 
     })
   })
 })
