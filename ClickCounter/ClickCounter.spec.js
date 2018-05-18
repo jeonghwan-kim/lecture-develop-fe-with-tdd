@@ -22,4 +22,10 @@ describe('App.ClickCounter', ()=> {
       expect(counter.getValue()).toBe(initialValue + 1)
     })
   })
+
+  describe('setCountFn()', () => {
+    it('인자로 함수를 넘기면 count()를 대체한다', () => {
+      // todo 
+    })
+  })
 })
