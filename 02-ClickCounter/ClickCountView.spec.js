@@ -1,5 +1,5 @@
 describe('ClickCountView 모듈', () => {
-  let clickCounter, udpateEl, triggerEl, view
+  let clickCounter, updateEl, triggerEl, view
   
   beforeEach(()=> {
     clickCounter = ClickCounter(); 
