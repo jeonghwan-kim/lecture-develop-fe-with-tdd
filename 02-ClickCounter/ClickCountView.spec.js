@@ -1,5 +1,5 @@
 describe('ClickCountView 모듈', () => {
-  let udpateEl, clickCounter, view
+  let updateEl, clickCounter, view
   
   beforeEach(()=> {
     updateEl = $('<span></span>');
