@@ -1,5 +1,5 @@
 describe('ClickCountView 모듈', () => {
-  let udpateEl, clickCounter, view
+  let updateEl, clickCounter, view
 
   it('ClickCounter를 주입하지 않으면 에러를 던진다', ()=> {
     const clickCounter = null
